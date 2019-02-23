@@ -15,9 +15,15 @@ public class Poj1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("master");
-        System.out.println("jestem na branchu testowym, druga zmiana 2");
-        // TODO code application logic here
+        Car samochod = new Car();
+        samochod.setMarka("seat");
+        samochod.printCar();
+
+        Car drugi = new Car("audi");
+        drugi.printCar();
+        
+        Car[] tablica = new Car[10];
+        tablica[0].setMarka("bmw");
     }
     
 }
