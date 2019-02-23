@@ -16,6 +16,7 @@ public class Poj1 {
      */
     public static void main(String[] args) {
         System.out.println("master");
+        System.out.println("jestem na branchu testowym, druga zmiana 2");
         // TODO code application logic here
     }
     
