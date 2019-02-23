@@ -15,7 +15,7 @@ public class Poj1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("jestem na branchu testowym");
+        System.out.println("jestem na branchu testowym, druga zmiana");
         // TODO code application logic here
     }
     
