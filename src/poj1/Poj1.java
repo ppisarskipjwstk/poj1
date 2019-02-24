@@ -5,6 +5,9 @@
  */
 package poj1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ppisarski
@@ -22,8 +25,18 @@ public class Poj1 {
         Car drugi = new Car("audi");
         drugi.printCar();
         
-        Car[] tablica = new Car[10];
-        tablica[0].setMarka("bmw");
+//        Car[] tablica = new Car[10];
+//        tablica[0]=new Car();
+//        tablica[0].setMarka("bmw");
+//        tablica[0].printCar();
+        
+        List<Car> lista = new ArrayList<Car>();
+        lista.add(samochod);
+        lista.add(drugi);
+        lista.add(new Car("listowy"));
+        
+        lista.forEach(item -> item.printCar());
+        
     }
     
 }
