@@ -9,11 +9,21 @@ package poj1;
  *
  * @author ppisarski
  */
-public class Car {
+public class Car implements Cloneable {
     private String marka;
     private int przebieg;
     private boolean nowy;
     private double cena;
+    
+    public Car clone(){
+        try {
+            Car cloned = (Car) super.clone();
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
     
     public String getMarka(){
         return this.marka;
@@ -21,6 +31,16 @@ public class Car {
     
     public void setMarka(String marka){
         this.marka = marka;
+    }
+
+
+    public double getCena(){
+        return this.cena;
+    }
+    
+    
+    public void setCena(double cena){
+        this.cena = cena;
     }
     
     public Car(){
@@ -35,5 +55,14 @@ public class Car {
     
     public void printCar(){
         System.out.println(this.marka + "; " + this.przebieg + "; " + this.cena);
+    }
+    
+    public void naliczPromocje(IPromocja p){
+        if(p.czyMoge(this)){
+        this.cena = p.nalicz(this);
+        }
+        else{
+            System.out.println(this.marka +" nie spelnia warunkow promocji");
+        }
     }
 }
