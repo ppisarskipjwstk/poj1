@@ -24,12 +24,23 @@ public class Poj1 {
         samochod.printCar();
 
         Car drugi = new Car("audi");
+    
+        samochod.setCena(20000);
+        drugi.setCena(30000);
+        
+        samochod.naliczPromocje(new Promocja1());
+        drugi.naliczPromocje(new Promocja2());
+        
+        samochod.printCar();
+        drugi.printCar();
         
 //        Car[] tablica = new Car[10];
 //        tablica[0]=new Car();
 //        tablica[0].setMarka("bmw");
 //        tablica[0].printCar();
         
+/*
+
         List<Car> lista = new ArrayList<Car>();
         lista.add(samochod);
         lista.add(drugi.clone());
@@ -66,7 +77,7 @@ public class Poj1 {
         System.out.println("po naliczeniu promocji");
         samochod.printCar();
         drugi.printCar();
-        
+  */      
     }
     
 }

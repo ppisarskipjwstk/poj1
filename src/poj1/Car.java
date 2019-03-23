@@ -57,6 +57,25 @@ public class Car implements Cloneable {
         System.out.println(this.marka + "; " + this.przebieg + "; " + this.cena);
     }
     
+    public void naliczPromocje(Promocja1 p){
+    if(p.czyMoge(this)){
+        this.cena = p.nalicz(this);
+        }
+        else{
+            System.out.println(this.marka +" nie spelnia warunkow promocji");
+        }
+    }
+    
+    public void naliczPromocje(Promocja2 p){
+    if(p.czyMoge(this)){
+        this.cena = p.nalicz(this);
+        }
+        else{
+            System.out.println(this.marka +" nie spelnia warunkow promocji");
+        }
+    }
+    
+    /*
     public void naliczPromocje(IPromocja p){
         if(p.czyMoge(this)){
         this.cena = p.nalicz(this);
@@ -65,4 +84,5 @@ public class Car implements Cloneable {
             System.out.println(this.marka +" nie spelnia warunkow promocji");
         }
     }
+    */
 }
