@@ -37,8 +37,7 @@ public class Car implements Cloneable {
     public double getCena(){
         return this.cena;
     }
-    
-    
+       
     public void setCena(double cena){
         this.cena = cena;
     }
