@@ -5,9 +5,6 @@
  */
 package poj1;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author ppisarski
@@ -31,7 +28,7 @@ public class Poj1 {
         
         samochod.naliczPromocje(new Promocja1());
         drugi.naliczPromocje(new Promocja2());
-        
+        System.out.println("po naliczeniu promocji");
         samochod.printCar();
         drugi.printCar();
 
