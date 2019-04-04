@@ -14,16 +14,7 @@ public class Car implements Cloneable {
     private int przebieg;
     private boolean nowy;
     private double cena;
-    
-    public Car clone(){
-        try {
-            Car cloned = (Car) super.clone();
-            return cloned;
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-            return null;
-        }
-    }
+    private Driver kierowca = new Driver("-");
     
     public String getMarka(){
         return this.marka;
@@ -55,7 +46,35 @@ public class Car implements Cloneable {
     public void printCar(){
         System.out.println(this.marka + "; " + this.przebieg + "; " + this.cena);
     }
+
+    //klonowanie
+    public Car clone(){
+        try {
+            Car cloned = (Car) super.clone();
+            
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
     
+    //konstruktor kopiujacy
+    public Car(Car drugi){
+        this.marka = drugi.getMarka();
+        this.cena = drugi.getCena();
+    }
+    
+    //kierowca
+    public void setKierowca(Driver kierowca){
+        this.kierowca = kierowca;
+    }
+    
+    public Driver getKierowca(){
+        return this.kierowca;
+    }
+    
+    //promocje
     public void naliczPromocje(Promocja1 p){
     if(p.czyMoge(this)){
         this.cena = p.nalicz(this);
@@ -84,4 +103,6 @@ public class Car implements Cloneable {
         }
     }
     */
+    
+    //cloned.setKierowca(this.kierowca.clone());
 }

@@ -5,6 +5,9 @@
  */
 package poj1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ppisarski
@@ -16,66 +19,71 @@ public class Poj1 {
      */
     public static void main(String[] args) {
 
+        //1. Tworzymy obiekty klasy samochod 
         Car samochod = new Car();
         samochod.setMarka("seat");
-        System.out.println("Poczatkowa: ");
-        samochod.printCar();
-
         Car drugi = new Car("audi");
-    
+        System.out.println("Poczatkowa: ");
         samochod.setCena(20000);
         drugi.setCena(30000);
-        
-        samochod.naliczPromocje(new Promocja1());
-        drugi.naliczPromocje(new Promocja2());
-        System.out.println("po naliczeniu promocji");
         samochod.printCar();
         drugi.printCar();
 
-        
-//        Car[] tablica = new Car[10];
-//        tablica[0]=new Car();
-//        tablica[0].setMarka("bmw");
-//        tablica[0].printCar();
-        
-
-//        List<Car> lista = new ArrayList<Car>();
-//        
-//        lista.add(samochod);
-//        lista.add(drugi);
-//        lista.add(new Car("listowy"));
-//        
-//        lista.forEach(item -> item.printCar());
-
-/*
-
+        //2. dodajemy obiekty na liste
         List<Car> lista = new ArrayList<Car>();
         lista.add(samochod);
         lista.add(drugi.clone());
-        lista.add(new Car("listowy"));
         System.out.println("Na liscie: ");
         lista.get(0).printCar();
         
-        //dodajemy samochod na liste i zmieniamy mu marke - bez klonowania
+        //3. zmieniamy obiekt na liscie - bez klonowania
         lista.get(0).setMarka("toyota");
         System.out.println("Po zmianie na liscie: ");
         lista.get(0).printCar();
         System.out.println("Po zmianie w obiekcie: ");
         samochod.printCar();
-
         
-        //drugi samochod jest dodany jako klon - i tez zmieniamy mu marke
+        //4. drugi samochod jest dodany jako klon - i tez zmieniamy mu marke
         lista.get(1).setMarka("mazda");
         System.out.println("Klonowanie. Po zmianie na liscie: ");
         lista.get(1).printCar();
         System.out.println("Klonowanie. Po zmianie w obiekcie: ");
         drugi.printCar();
+
+        //5. konstruktor kopiujacy
+        Car trzeci = new Car(drugi);
+        trzeci.printCar();
+        drugi.setMarka("zmieniona");
+        System.out.println("Konstruktor kopiujący");
+        drugi.printCar();
+        trzeci.printCar();
+        
+        //6. driver
+        Driver kierowca = new Driver("Adam");
+        samochod.setKierowca(kierowca);
+        System.out.println("Kierowca");
+        System.out.println(samochod.getKierowca().getImie());
+        System.out.println(kierowca.getImie());
+        kierowca.setImie("Jednak nie Adam");
+        System.out.println("Kierowca po zmianie");
+        System.out.println(samochod.getKierowca().getImie());
+        System.out.println(kierowca.getImie());
+        
+        //7. klonowanie i driver
+        Car klon = samochod.clone();
+        kierowca.setImie("Bolek");
+        System.out.println("Kierowca po klonowaniu samochodu");
+        System.out.println(samochod.getKierowca().getImie());
+        System.out.println(klon.getKierowca().getImie());
+      
+        //8. w klonowanym samochodzie sklonuj tez jego drivera
         
         //interfejs        
+  /*
         samochod.setCena(20000);
         drugi.setCena(30000);
         
-        System.out.println("przed naliczeniu promocji");
+        System.out.println("przed naliczeniem promocji");
         samochod.printCar();
         drugi.printCar();
         
@@ -86,7 +94,8 @@ public class Poj1 {
         System.out.println("po naliczeniu promocji");
         samochod.printCar();
         drugi.printCar();
-  */      
+  */
+
     }
     
 }
